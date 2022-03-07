@@ -15,7 +15,7 @@ const Home = ({ countries }: Props) => {
       </div>
       <ul>
         {countries.map(country => (
-          <li key={country.numeric_code}>{country.official_name} is <b>FUN</b></li>
+          <li key={country.numeric_code}>{country.official_name} is <b>real great</b></li>
         ))}
       </ul>
     </div>

@@ -8,7 +8,9 @@ import routes from "./common/routes"
 
 const transport = new WebTransport("/api")
 const api = ApiClient.create(Api, transport)
-const services = { api }
+const services = { api };
+const top = window as any
+top.api = api
 
 createApp()
 

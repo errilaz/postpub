@@ -1,12 +1,12 @@
 import pg from "pg-promise"
-import { ApiClient, apiMiddleware, DbTransport } from "poststack"
-import { env } from "./common"
-import routes from "./common/routes"
-import Api from "./common/api"
 import Koa from "koa"
 import KoaRouter from "koa-router"
 import koaStatic from "koa-static"
 import { Assets, render } from "@jaredpalmer/after"
+import { ApiClient, apiMiddleware, DbTransport } from "poststack"
+import { env } from "./common/env"
+import routes from "./common/routes"
+import Api from "./common/api"
 
 const assets: Assets = require(process.env.RAZZLE_ASSETS_MANIFEST!);
 const db = createDb()
