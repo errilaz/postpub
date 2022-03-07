@@ -1,0 +1,14 @@
+{
+  "name": "@postpub/db",
+  "private": "true",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "./scripts/build",
+    "build:image": "docker build . -t postpub/db",
+    "build:all": "pnpm build && pnpm build:image",
+    "postinstall": "./scripts/postinstall"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  }
+}

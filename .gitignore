@@ -1,0 +1,5 @@
+node_modules
+.env*
+app/build
+app/cache
+.pnpm-debug.log

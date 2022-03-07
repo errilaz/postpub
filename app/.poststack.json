@@ -1,0 +1,11 @@
+{
+  "output": "src/common/api.ts",
+  "udts": {
+    "string": [
+      "slug"
+    ],
+    "number": [
+      "percent"
+    ]
+  }
+}

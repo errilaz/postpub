@@ -1,0 +1,27 @@
+# DEPRECATED
+
+FROM postpub/deps:latest as deps
+
+FROM node:14-alpine AS os-builder
+RUN apk add python3 make g++
+RUN npm install -g pnpm@6.31.0
+
+FROM os-builder as modules
+WORKDIR /postpub/app
+COPY package.json ./
+COPY scripts scripts
+RUN node scripts/remove-workspace-dependencies package.json
+RUN pnpm install
+COPY --from=deps /deps/ node_modules/
+
+FROM os-builder
+WORKDIR /postpub/app
+COPY --from=modules /postpub/app/package.json ./
+COPY --from=modules /postpub/app/node_modules node_modules
+# COPY src src
+# COPY static static
+COPY razzle.config.js ./
+
+EXPOSE 3000
+EXPOSE 3001
+CMD ["pnpm", "dev"]
